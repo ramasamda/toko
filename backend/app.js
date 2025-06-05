@@ -10,6 +10,10 @@ app.use(cors())
 app.use(express.json());
 app.use(route)
 
+app.listen(port,'0.0.0.0',()=>{
+    console.log(`Listening on port ${port}`)
+})
+
 app.listen(port,()=>{
     console.log(`app is listening on ${port}`)
 })
