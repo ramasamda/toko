@@ -9,7 +9,7 @@ const getUser = (cb)=>{
   }
     axios({
         method : "GET",
-        url : "http://localhost:3000/user",
+        url : "https://warung-production.up.railway.app/user",
         headers:{
             access_token:localStorage.getItem('token')
         },
@@ -32,7 +32,7 @@ const getProfile = (cb)=>{
     }
     axios({
         method : "GET",
-        url : "http://localhost:3000/user/profile",
+        url : "https://warung-production.up.railway.app/user/profile",
         headers :{
             access_token : localStorage.getItem('token')
         },
@@ -48,7 +48,7 @@ const create =(data)=>{
 const{id,name,type,price,stock,image,userId} = data
 axios({
     method:"POST",
-    url : "http://localhost:3000/user/create",
+    url : "https://warung-production.up.railway.app/user/create",
     data :{
         id,
         name,
@@ -69,7 +69,7 @@ axios({
 const update = (id,profile)=>{
     axios({
         method : "POST",
-        url : "http://localhost:3000/profile/update/" + id,
+        url : "https://warung-production.up.railway.app/user/update/" + id,
         data : profile
     })
 .then((result)=>{
@@ -84,7 +84,7 @@ const update = (id,profile)=>{
 const profileId = (id,cb)=>{
     axios({
         method:"GET",
-        url :"http://localhost:3000/user/" + id
+        url :"https://warung-production.up.railway.app/user/" + id
     })
     .then((result)=>{
         cb(result.data)
@@ -98,7 +98,7 @@ const login = (data)=>{
     const{name,type} = data
      return axios({
         method:"POST",
-        url:"http://localhost:3000/user/login",
+        url:"https://warung-production.up.railway.app/user/login",
         data:{
             name,type
         }
@@ -117,7 +117,7 @@ const updateImage = (id,file)=>{
     formData.append('image',file)
     axios({
         method:"POST",
-        url : `http://localhost:3000/user/updateImage/${id}`,
+        url : `https://warung-production.up.railway.app/user/updateImage/${id}`,
         data : formData
     })
     .then((result)=>{
@@ -130,7 +130,7 @@ const updateImage = (id,file)=>{
 const deleteUser = (id)=>{
     axios({
         method : "GET",
-        url :"http://localhost:3000/user/delete/" + id
+        url :"https://warung-production.up.railway.app/" + id
         
     })
     .then((result)=>{
